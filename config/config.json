@@ -1,0 +1,26 @@
+{
+	"products": [
+		{
+			"identifier": "klang",
+			"pcbSize": {
+				"width": 70,
+				"height": 111
+			},
+			"qrcodePlacement": {
+				"x": 10,
+				"y": 10
+			}
+		},
+		{
+			"identifier": "spektrum",
+			"pcbSize": {
+				"width": 0,
+				"height": 0
+			},
+			"qrcodePlacement": {
+				"x": 0,
+				"y": 0
+			}
+		}
+	]
+}
