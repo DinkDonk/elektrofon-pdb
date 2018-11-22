@@ -23,8 +23,12 @@ function generateHtml(item) {
 	if (item.hasOwnProperty('events')) {
 		const eventMarkups = [];
 
+		item.events.sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
+
 		item.events.forEach((event) => {
-			let eventMarkup = eventTemplate.replace(/{{EVENT_NAME}}/g, event.name);
+			let eventMarkup = eventTemplate
+				.replace(/{{NAME}}/g, event.name)
+				.replace(/{{TIME}}/g, event.time);
 
 			if (event.hasOwnProperty('data')) {
 				const dataItemMarkups = [];
