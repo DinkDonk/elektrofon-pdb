@@ -1,13 +1,15 @@
 {
   "main": "src/scanner/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "generate-serials": "src/generate-serials.js"
   },
   "dependencies": {
     "electron": "^3.0.10",
     "form-serialize": "^0.7.2",
     "jsqr": "^1.1.1",
     "materialize-css": "^1.0.0",
+    "minimist": "^1.2.0",
     "qrcode-svg": "^1.0.0"
   }
 }

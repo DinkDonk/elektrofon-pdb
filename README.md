@@ -13,6 +13,18 @@ $ yarn install
 $ yarn start
 ```
 
+### Generate serials
+
+```bash
+$ node src/generate-serials.js [identifier [count]]
+```
+
+### Generate QRcodes
+
+```bash
+$ node src/generate-qrcodes.js
+```
+
 ### Generate PDB site
 
 ```bash

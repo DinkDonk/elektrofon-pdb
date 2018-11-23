@@ -1,9 +1,12 @@
 const fs = require('fs');
-const config = require('./config/config.json');
+const config = require('../config/config.json');
+const args = require('minimist')(process.argv.slice(2));
 
-console.log(config);
+if (!fs.existsSync(__dirname + '/../pdb')){
+	fs.mkdirSync(__dirname + '/../pdb');
+}
 
-let serials = fs.readFileSync('serials/serials.list', 'utf8').split('\n');
+let serials = fs.readFileSync(__dirname + '/../serials/serials.list', 'utf8').split('\n');
 const newSerials = [];
 
 if (serials[serials.length - 1] !== '') {
@@ -34,22 +37,16 @@ function generateSerials(productIdentifier, count = 1) {
 
 		newSerials.push(serial);
 
-		fs.appendFileSync('serials/serials.list', serial + '\n');
+		fs.appendFileSync(__dirname + '/../serials/serials.list', serial + '\n');
 
-		fs.writeFileSync(`pdb/${serial}.json`, `{"serial": "${serial}", "identifier": "${identifierMatch[0].identifier}"}`);
+		fs.writeFileSync(`${__dirname}/../pdb/${serial}.json`, `{"serial": "${serial}", "identifier": "${identifierMatch[0].identifier}"}`);
 	}
 }
 
-function queryPdb(serial) {
-	if (!fs.existsSync(`pdb/${serial}.json`)) {
-		return console.log('Serial not found');
-	}
-
-	console.log(JSON.parse(fs.readFileSync(`pdb/${serial}.json`, 'utf8')));
+if (args._.length < 1) {
+	generateSerials('klang', 1);
+} else if (args._.length < 2) {
+	generateSerials(args._[0], 1);
+} else {
+	generateSerials(args._[0], args._[1]);
 }
-
-generateSerials('klang', 4);
-
-// console.log(newSerials);
-
-// queryPdb('usee5kxtwq');

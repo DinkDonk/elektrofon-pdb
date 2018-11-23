@@ -1,4 +1,8 @@
 {
+	"laserOffset": {
+		"x": 10,
+		"y": 10
+	},
 	"products": [
 		{
 			"identifier": "klang",
@@ -6,7 +10,11 @@
 				"width": 70,
 				"height": 111
 			},
-			"qrcodePlacement": {
+			"qrcodeSize": {
+				"width": 10,
+				"height": 10
+			},
+			"qrcodePosition": {
 				"x": 10,
 				"y": 10
 			}
@@ -17,7 +25,11 @@
 				"width": 0,
 				"height": 0
 			},
-			"qrcodePlacement": {
+			"qrcodeSize": {
+				"width": 10,
+				"height": 10
+			},
+			"qrcodePosition": {
 				"x": 0,
 				"y": 0
 			}

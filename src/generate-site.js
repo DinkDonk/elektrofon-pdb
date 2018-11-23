@@ -1,8 +1,13 @@
 const fs = require('fs');
-var QRCode = require("qrcode-svg");
+const path = require('path');
+const QRCode = require('qrcode-svg');
 
 const wrapperTemplate = fs.readFileSync(__dirname + '/templates/wrapper.html', 'utf8');
 const eventTemplate = fs.readFileSync(__dirname + '/templates/event.html', 'utf8');
+
+if (!fs.existsSync(__dirname + '/../site')){
+	fs.mkdirSync(__dirname + '/../site');
+}
 
 function generateHtml(item) {
 	const qrcode = new QRCode({
@@ -13,7 +18,11 @@ function generateHtml(item) {
 		color: '#000000',
 		background: 'white',
 		ecl: 'M'
-	}).svg();
+	})
+	.svg()
+	.replace(/<\?xml.*?\?>/, '')
+	.replace(/<svg.*?>/, '')
+	.replace(/<\/svg>/, '');
 
 	let wrapperMarkup = wrapperTemplate
 		.replace(/{{SERIAL_NUMBER}}/g, item.serial)
@@ -49,14 +58,16 @@ function generateHtml(item) {
 	fs.writeFileSync(`${__dirname}/../site/${item.serial}.html`, wrapperMarkup);
 }
 
-fs.readdir('pdb', (error, filenames) => {
+fs.readdir(__dirname + '/../pdb', (error, filenames) => {
 	if (error) throw error;
 
 	filenames.forEach((filename) => {
-		fs.readFile('pdb/' + filename, 'utf8', (error, data) => {
+		fs.readFile(__dirname + '/../pdb/' + filename, 'utf8', (error, data) => {
 			if (error) throw error;
 
-			generateHtml(JSON.parse(data));
+			if (path.extname(filename) === '.json') {
+				generateHtml(JSON.parse(data));
+			}
 		});
 	});
 });
