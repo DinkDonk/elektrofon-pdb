@@ -1,8 +1,7 @@
-
-					<?xml version="1.0" standalone="yes"?>
-					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="80" height="121">
-						<svg x="10" y="10">
-							
+<?xml version="1.0" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="80" height="121">
+	<g transform="translate(20 93)">
+		
 
 <rect x="0" y="0" width="10" height="10" style="fill:transparent;shape-rendering:crispEdges;"/>
 <rect x="0" y="0" width="0.3448275862068966" height="0.3448275862068966" style="fill:#0000FF;shape-rendering:crispEdges;"/>
@@ -454,6 +453,5 @@
 <rect x="8.965517241379311" y="9.655172413793103" width="0.3448275862068966" height="0.3448275862068966" style="fill:#0000FF;shape-rendering:crispEdges;"/>
 <rect x="9.310344827586208" y="9.655172413793103" width="0.3448275862068966" height="0.3448275862068966" style="fill:#0000FF;shape-rendering:crispEdges;"/>
 
-						</svg>
-					</svg>
-				
+	</g>
+</svg>

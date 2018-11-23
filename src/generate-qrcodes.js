@@ -33,14 +33,12 @@ fs.readdir(__dirname + '/../pdb', (error, filenames) => {
 				.replace(/<svg.*?>/, '')
 				.replace(/<\/svg>/, '');
 
-				fs.writeFileSync(`${__dirname}/../qrcodes/${item.serial}.svg`, `
-					<?xml version="1.0" standalone="yes"?>
-					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="${itemConfig.pcbSize.width + config.laserOffset.x}" height="${itemConfig.pcbSize.height + config.laserOffset.y}">
-						<svg x="${itemConfig.qrcodePosition.x}" y="${itemConfig.qrcodePosition.y}">
-							${qrcode}
-						</svg>
-					</svg>
-				`);
+				fs.writeFileSync(`${__dirname}/../qrcodes/${item.serial}.svg`, `<?xml version="1.0" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="${itemConfig.pcbSize.width + config.laserOffset.x}" height="${itemConfig.pcbSize.height + config.laserOffset.y}">
+	<g transform="translate(${itemConfig.qrcodePosition.x + config.laserOffset.x - (itemConfig.qrcodeSize.width / 2)} ${itemConfig.qrcodePosition.y + config.laserOffset.y - (itemConfig.qrcodeSize.height / 2)})">
+		${qrcode}
+	</g>
+</svg>`);
 			}
 		});
 	});
