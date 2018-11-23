@@ -1,0 +1,22 @@
+{
+	"serial": "0123456789",
+	"identifier": "klang",
+	"events": [
+		{
+			"name": "PCB received",
+			"time": "2011-10-05T14:48:00.000Z",
+			"data": {
+				"Manufacturer": "ALLPCB",
+				"PCB ID": "ALL-2Y135196",
+				"Notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo magna, euismod ut libero blandit, blandit aliquet enim."
+			}
+		},
+		{
+			"name": "PCB inspected",
+			"time": "2012-10-05T14:48:00.000Z",
+			"data": {
+				"Inspector": "Rune Warhuus"
+			}
+		}
+	]
+}
