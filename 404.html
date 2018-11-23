@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Serial Not Found</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<style>
+		html,
+		body,
+		.valign-wrapper {
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="valign-wrapper">
+		<div class="row">
+			<div class="card pink darken-1">
+				<div class="card-content white-text center-align">
+					<i class="large material-icons">error_outline</i>
+					<h5 class="card-title">The product serial <strong class="serial"></strong> was not found</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<script>
+		const serial = document.location.pathname.replace('/', '').replace('.html', '');
+
+		const serialElements = document.querySelectorAll('.serial');
+
+		for (let i = 0; i < serialElements.length; i++) {
+			serialElements[i].innerText = serial;
+		}
+	</script>
+</body>
+</html>
