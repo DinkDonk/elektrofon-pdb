@@ -2,31 +2,54 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Hello World!</title>
+		<title>Elektrofon PDB Scanner</title>
 
 		<link rel="stylesheet" href="../../node_modules/materialize-css/dist/css/materialize.min.css">
 		<link rel="stylesheet" href="./main.css">
 	</head>
 	<body>
-		<div class="valign-wrapper">
+		<div class="valign-wrapper" id="video-select-wrapper" hidden>
 			<div class="row">
-				<div class="center-align" id="video-wrapper" hidden>
-					<canvas id="canvas" width="640" height="640"></canvas>
-
-					<div class="valign-wrapper" id="output" hidden>
-						<div class="center-align" id="output-data"></div>
-					</div>
-
-					<button class="btn-floating btn-large pulse btn-scan" onclick="startScan()" hidden>Scan again</button>
-				</div>
-
-				<div class="center-align" id="video-select-wrapper">
+				<div class="center-align">
 					<div class="input-field">
 						<select id="video-source">
 							<option value="" disabled selected>Choose your camera</option>
 						</select>
 					</div>
 				</div>
+			</div>
+		</div>
+
+		<div class="valign-wrapper" id="video-wrapper" hidden>
+			<div class="row">
+				<div class="center-align">
+					<canvas id="canvas" width="640" height="640"></canvas>
+
+					<div class="valign-wrapper" id="output" hidden>
+						<div class="center-align" id="output-data"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="valign-wrapper" id="select-event-wrapper" hidden>
+			<div class="row">
+				<div class="center-align">
+					<div class="input-field">
+						<select id="event-source">
+							<option value="" disabled selected>Select event</option>
+							<option value="pcb-received">PCB recieved</option>
+							<option value="pcb-inspected">PCB inspected</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="valign-wrapper" id="form-wrapper" hidden>
+			<div class="row">
+				<form class="center-align">
+				</form>
 			</div>
 		</div>
 

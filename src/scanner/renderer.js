@@ -3,16 +3,23 @@
 // All of the Node.js APIs are available in this process.
 
 const fs = require('fs');
+const serialize = require('form-serialize');
 
+const videoSelectWrapper = document.querySelector('#video-select-wrapper');
+const videoWrapper = document.querySelector('#video-wrapper');
 const videoSelect = document.querySelector('#video-source');
 const video = document.createElement('video');
-const canvasElement = document.getElementById('canvas');
+const canvasElement = document.querySelector('canvas');
 const canvas = canvasElement.getContext('2d');
-const outputContainer = document.getElementById('output');
-const outputData = document.getElementById('output-data');
-const scanButton = document.querySelector('.btn-scan');
+const outputContainer = document.querySelector('#output');
+const outputData = document.querySelector('#output-data');
+const selectEventWrapper = document.querySelector('#select-event-wrapper');
+const eventSelect = document.querySelector('#event-source');
+const formWrapper = document.querySelector('#form-wrapper');
+const form = document.querySelector('form');
 let tickId;
 let scanPaused = false;
+let code;
 
 navigator.mediaDevices.enumerateDevices()
 .then((devices) => {
@@ -34,6 +41,8 @@ navigator.mediaDevices.enumerateDevices()
 		});
 
 		M.FormSelect.init(document.querySelectorAll('select'));
+
+		videoSelectWrapper.hidden = false;
 	} else {
 		videoSelect.value = devices[0].deviceId;
 
@@ -54,8 +63,8 @@ function drawLine(begin, end, color) {
 }
 
 function getStream(event, ignoreSelect) {
-	document.querySelector('#video-select-wrapper').hidden = true;
-	document.querySelector('#video-wrapper').hidden = false;
+	videoSelectWrapper.hidden = true;
+	videoWrapper.hidden = false;
 
 	const options = {
 		audio: false,
@@ -85,7 +94,6 @@ function getStream(event, ignoreSelect) {
 
 function startScan() {
 	scanPaused = false;
-	scanButton.hidden = true;
 	outputContainer.hidden = true;
 }
 
@@ -94,12 +102,12 @@ function tick() {
 		canvasElement.hidden = false;
 		outputContainer.hidden = false;
 
-		canvasElement.height = video.videoHeight;
-		canvasElement.width = video.videoWidth;
+		// canvasElement.height = video.videoHeight;
+		// canvasElement.width = video.videoWidth;
 		canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 
 		const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-		const code = jsQR(imageData.data, imageData.width, imageData.height, {
+		code = jsQR(imageData.data, imageData.width, imageData.height, {
 			inversionAttempts: 'dontInvert',
 		});
 
@@ -113,10 +121,9 @@ function tick() {
 			outputData.innerText = code.data;
 
 			scanPaused = true;
-			scanButton.hidden = false;
 
-			let modal = window.open('', 'modal');
-			modal.document.write(fs.readFileSync(`pdb/${code.data.substr(code.data.lastIndexOf('/') + 1)}.json`, 'utf8'));
+			videoSelectWrapper.hidden = true;
+			selectEventWrapper.hidden = false;
 		} else {
 			outputContainer.hidden = true;
 		}
@@ -125,4 +132,95 @@ function tick() {
 	tickId = requestAnimationFrame(tick);
 }
 
+function reset() {
+	formWrapper.hidden = true;
+	selectEventWrapper.hidden = true;
+	videoWrapper.hidden = false;
+
+	startScan();
+
+	eventSelect.selectedIndex = -1;
+	M.FormSelect.init(eventSelect);
+}
+
+window.cancelForm = reset;
+
+window.sendForm = () => {
+	eventSelect.selectedIndex = -1;
+	M.FormSelect.init(eventSelect);
+
+	const serial = code.data.substr(code.data.lastIndexOf('/') + 1);
+
+	item = JSON.parse(fs.readFileSync(`pdb/${code.data.substr(code.data.lastIndexOf('/') + 1)}.json`, 'utf8'));
+
+	if (!item.hasOwnProperty('events')) {
+		item.events = [];
+	}
+
+	item.events.push({
+		name: eventSelect.text,
+		time: new Date().toISOString(),
+		data: serialize(form, {hash: true})
+	});
+
+	console.log(serialize(form, {hash: true}));
+
+	fs.writeFileSync(`pdb/${code.data.substr(code.data.lastIndexOf('/') + 1)}.json`, JSON.stringify(item));
+
+	reset();
+};
+
+function getForm() {
+	let formContent = '';
+
+	switch (eventSelect.value) {
+		case 'pcb-received':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="manufacturer" name="manufacturer" type="text" class="validate">
+						<label for="manufacturer">Manufacturer</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+						<label for="notes">Notes</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'pcb-inspected':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="inspector" name="inspector">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="inspector">Inspector</label>
+					</div>
+				</div>
+			`;
+		break;
+	}
+
+	formContent += `
+		<div class="row">
+			<a class="waves-effect waves-light btn-large red" onclick="cancelForm()">Cancel</a>
+			<a class="waves-effect waves-light btn-large" onclick="sendForm()">OK</a>
+		</div>
+	`;
+
+	form.innerHTML = formContent;
+
+	M.FormSelect.init(form.querySelectorAll('select'));
+
+	videoWrapper.hidden = true;
+	selectEventWrapper.hidden = true;
+	formWrapper.hidden = false;
+}
+
 videoSelect.onchange = getStream;
+eventSelect.onchange = getForm;
