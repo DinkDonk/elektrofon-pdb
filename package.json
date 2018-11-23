@@ -1,8 +1,10 @@
 {
+  "domain": "pdb.elektrofon.no",
   "main": "src/scanner/main.js",
   "scripts": {
     "start": "electron .",
-    "generate-serials": "src/generate-serials.js"
+    "generate-serials": "src/generate-serials.js",
+    "deploy": "./scripts/deploy.sh"
   },
   "dependencies": {
     "electron": "^3.0.10",

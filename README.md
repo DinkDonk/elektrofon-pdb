@@ -30,3 +30,9 @@ $ node src/generate-qrcodes.js
 ```bash
 $ node src/generate-site.js
 ```
+
+### Deploying PDB site
+
+```bash
+$ yarn run deploy
+```
