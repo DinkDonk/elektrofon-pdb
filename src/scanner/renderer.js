@@ -17,6 +17,7 @@ const selectEventWrapper = document.querySelector('#select-event-wrapper');
 const eventSelect = document.querySelector('#event-source');
 const formWrapper = document.querySelector('#form-wrapper');
 const form = document.querySelector('form');
+
 let tickId;
 let scanPaused = false;
 let code;

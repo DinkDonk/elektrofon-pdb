@@ -5,7 +5,7 @@ const {app, BrowserWindow} = require('electron');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-function createWindow () {
+function createWindow() {
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
 		width: 640,
@@ -37,7 +37,7 @@ function createWindow () {
 app.on('ready', createWindow);
 
 // Quit when all windows are closed.
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
 	// On macOS it is common for applications and their menu bar
 	// to stay active until the user quits explicitly with Cmd + Q
 	if (process.platform !== 'darwin') {
