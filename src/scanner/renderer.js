@@ -41,14 +41,14 @@ navigator.mediaDevices.enumerateDevices()
 			index++;
 		});
 
-		M.FormSelect.init(document.querySelectorAll('select'));
-
 		videoSelectWrapper.hidden = false;
 	} else {
 		videoSelect.value = devices[0].deviceId;
 
 		getStream(null, true);
 	}
+
+	M.FormSelect.init(document.querySelectorAll('select'));
 })
 .catch((err) => {
 	console.log(`${err.name}: ${err.message}`);
