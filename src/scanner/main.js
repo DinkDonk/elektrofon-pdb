@@ -5,6 +5,11 @@ const {app, BrowserWindow} = require('electron');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
+// Turn off hardware acceleration if running on linux
+if (process.platform === 'linux') {
+	app.disableHardwareAcceleration();
+}
+
 function createWindow() {
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
