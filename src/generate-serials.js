@@ -6,11 +6,15 @@ if (!fs.existsSync(__dirname + '/../pdb')){
 	fs.mkdirSync(__dirname + '/../pdb');
 }
 
+fs.writeFileSync(__dirname + '/../serials/serials.list', '', {flag: 'a'});
+fs.writeFileSync(__dirname + '/../serials/pdb-links.csv', '', {flag: 'a'});
+
 let serials = fs.readFileSync(__dirname + '/../serials/serials.list', 'utf8').split('\n');
 const newSerials = [];
 
 if (serials[serials.length - 1] !== '') {
-	fs.appendFileSync('serials/serials.list', '\n');
+	fs.appendFileSync(__dirname + '/../serials/serials.list', '\n');
+	fs.appendFileSync(__dirname + '/../serials/pdb-links.csv', '\n');
 }
 
 serials = serials.filter(Boolean);
@@ -38,6 +42,8 @@ function generateSerials(productIdentifier, count = 1) {
 		newSerials.push(serial);
 
 		fs.appendFileSync(__dirname + '/../serials/serials.list', serial + '\n');
+
+		fs.appendFileSync(__dirname + '/../serials/pdb-links.csv', 'https://pdb.elektrofon.no/' + serial + '\n');
 
 		fs.writeFileSync(`${__dirname}/../pdb/${serial}.json`, `{"serial": "${serial}", "identifier": "${identifierMatch[0].identifier}"}`);
 	}
