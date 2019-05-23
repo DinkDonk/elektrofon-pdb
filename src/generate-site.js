@@ -55,7 +55,11 @@ function generateHtml(item) {
 		wrapperMarkup = wrapperMarkup.replace(/{{EVENTS}}/g, eventMarkups.join('\n'));
 	}
 
-	fs.writeFileSync(`${__dirname}/../site/${item.serial}.html`, wrapperMarkup);
+	if (!fs.existsSync(`${__dirname}/../site/${item.serial}`)){
+		fs.mkdirSync(`${__dirname}/../site/${item.serial}`);
+	}
+
+	fs.writeFileSync(`${__dirname}/../site/${item.serial}/index.html`, wrapperMarkup);
 }
 
 fs.readdir(__dirname + '/../pdb', (error, filenames) => {
