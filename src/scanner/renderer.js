@@ -205,6 +205,180 @@ function getForm() {
 				</div>
 			`;
 		break;
+		case 'pick-and-place-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'reflow-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'manual-soldering-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+						<label for="notes">Notes</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'power-on-test-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+						<label for="notes">Notes</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'programming-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'calibration-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="notes" name="notes" class="materialize-textarea"></textarea>
+						<label for="notes">Notes</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'ultrasonic-cleaning-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'assembly-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'packing-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'shipped':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="courier" name="courier">
+							<option value="DHL" selected>DHL</option>
+							<option value="FedEx">FedEx</option>
+							<option value="UPS">UPS</option>
+						</select>
+						<label for="courier">Courier</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="tracking-number" name="tracking-number" type="text" class="validate">
+						<label for="tracking-number">Tracking number</label>
+					</div>
+				</div>
+			`;
+		break;
 	}
 
 	formContent += `

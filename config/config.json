@@ -20,7 +20,7 @@
 			}
 		},
 		{
-			"identifier": "spektrum",
+			"identifier": "blink",
 			"pcbSize": {
 				"width": 0,
 				"height": 0
