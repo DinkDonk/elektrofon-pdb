@@ -98,3 +98,7 @@ The following is the `data` properties for all events:
 - technician [string]
 - courier [string]
 - tracking-number [string]
+
+#### manufacturing-halted
+- technician [string]
+- reason [string]
