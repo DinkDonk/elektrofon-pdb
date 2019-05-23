@@ -35,9 +35,10 @@ function generateHtml(item) {
 		item.events.sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
 
 		item.events.forEach((event) => {
+			let time = new Date(event.time);
 			let eventMarkup = eventTemplate
 				.replace(/{{NAME}}/g, event.name)
-				.replace(/{{TIME}}/g, event.time);
+				.replace(/{{TIME}}/g, `${time.getFullYear()}-${('0' + (time.getMonth() + 1)).slice(-2)}-${('0' + time.getDate()).slice(-2)} ${('0' + time.getHours()).slice(-2)}:${('0' + time.getMinutes()).slice(-2)}`);
 
 			if (event.hasOwnProperty('data')) {
 				const dataItemMarkups = [];
