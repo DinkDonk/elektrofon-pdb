@@ -37,6 +37,13 @@ $ node src/generate-site.js
 $ yarn run deploy
 ```
 
+### Mass injection of event
+You can inject events on all items in the database by using `mass-inject-event.js` like this:
+
+```bash
+$ node src/mass-inject-event.js '{"name": "power-on-test-completed","time":"2019-05-23T20:52:00.000Z","data":{"technician":"Rune Warhuus","notes":"3.3V, 13V, 1V and 1.25V tested OK"}}'
+```
+
 ### Available events
 
 - pcb-received
@@ -80,6 +87,7 @@ The following is the `data` properties for all events:
 
 #### programming-completed
 - technician [string]
+- notes [string]
 
 #### calibration-completed
 - technician [string]

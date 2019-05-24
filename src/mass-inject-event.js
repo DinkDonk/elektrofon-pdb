@@ -22,7 +22,7 @@ if (!args._[0]) {
 	}
 }
 
-fs.readdir(__dirname + '/../pdb2', (error, filenames) => {
+fs.readdir(__dirname + '/../pdb', (error, filenames) => {
 	if (error) throw error;
 
 	filenames.forEach((filename) => {
