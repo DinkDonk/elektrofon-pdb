@@ -199,6 +199,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="inspector">Inspector</label>
 					</div>
@@ -213,6 +214,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -227,6 +229,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -241,6 +244,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -261,6 +265,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -281,6 +286,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -295,6 +301,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -315,8 +322,30 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'subassembly-completed':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="subassembly" name="subassembly" class="materialize-textarea"></textarea>
+						<label for="subassembly">Subassembly</label>
 					</div>
 				</div>
 			`;
@@ -329,6 +358,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -343,6 +373,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -357,6 +388,7 @@ function getForm() {
 							<option value="Rune Warhuus" selected>Rune Warhuus</option>
 							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
 							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
 						</select>
 						<label for="technician">Technician</label>
 					</div>
@@ -375,6 +407,27 @@ function getForm() {
 					<div class="input-field col s12">
 						<input id="tracking-number" name="tracking-number" type="text" class="validate">
 						<label for="tracking-number">Tracking number</label>
+					</div>
+				</div>
+			`;
+		break;
+		case 'manufacturing-halted':
+			formContent = `
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="technician" name="technician">
+							<option value="Rune Warhuus" selected>Rune Warhuus</option>
+							<option value="Erlend Sand Bærland">Erlend Sand Bærland</option>
+							<option value="Otto A. Totland">Otto A. Totland</option>
+							<option value="Tobias Elefsen">Tobias Elefsen</option>
+						</select>
+						<label for="technician">Technician</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="reason" name="reason" class="materialize-textarea"></textarea>
+						<label for="reason">Reason</label>
 					</div>
 				</div>
 			`;

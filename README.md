@@ -96,6 +96,10 @@ The following is the `data` properties for all events:
 #### ultrasonic-cleaning-completed
 - technician [string]
 
+#### subassembly-completed
+- technician [string]
+- subassembly [string]
+
 #### assembly-completed
 - technician [string]
 
