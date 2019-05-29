@@ -576,7 +576,7 @@
 			<section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">pcb-received</span>
+			<span class="card-title unslug">pcb-received</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-03-18 16:00</span></li>
@@ -590,7 +590,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">pcb-inspected</span>
+			<span class="card-title unslug">pcb-inspected</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-04-01 21:00</span></li>
@@ -603,7 +603,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">subassembly-completed</span>
+			<span class="card-title unslug">subassembly-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-04-27 19:00</span></li>
@@ -617,7 +617,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">subassembly-completed</span>
+			<span class="card-title unslug">subassembly-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-04-28 16:00</span></li>
@@ -631,7 +631,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">pick-and-place-completed</span>
+			<span class="card-title unslug">pick-and-place-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-22 19:00</span></li>
@@ -644,7 +644,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">reflow-completed</span>
+			<span class="card-title unslug">reflow-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-22 21:00</span></li>
@@ -657,7 +657,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">manual-soldering-completed</span>
+			<span class="card-title unslug">manual-soldering-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-23 01:00</span></li>
@@ -671,7 +671,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">power-on-test-completed</span>
+			<span class="card-title unslug">power-on-test-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-23 22:52</span></li>
@@ -685,7 +685,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">programming-completed</span>
+			<span class="card-title unslug">programming-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-24 21:37</span></li>
@@ -699,7 +699,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">manual-soldering-completed</span>
+			<span class="card-title unslug">manual-soldering-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-26 17:00</span></li>
@@ -713,7 +713,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">manual-soldering-completed</span>
+			<span class="card-title unslug">manual-soldering-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-26 22:30</span></li>
@@ -727,7 +727,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">calibration-completed</span>
+			<span class="card-title unslug">calibration-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-27 21:37</span></li>
@@ -741,7 +741,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">manual-soldering-completed</span>
+			<span class="card-title unslug">manual-soldering-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-28 01:30</span></li>
@@ -755,7 +755,7 @@
 <section class="timeline-event">
 	<div class="card timeline-content">
 		<div class="card-content">
-			<span class="card-title">ultrasonic-cleaning-completed</span>
+			<span class="card-title unslug">ultrasonic-cleaning-completed</span>
 
 			<ul class="collection">
 				<li class="collection-item">time <span class="secondary-content">2019-05-28 21:59</span></li>
@@ -767,6 +767,14 @@
 </section>
 		</div>
 	</div>
+
+	<script>
+		var unslugElements = document.querySelectorAll('.unslug');
+
+		for (var i = 0, l = unslugElements.length; i < l; i++) {
+			unslugElements[i].innerText = unslugElements[i].innerText.replace(/-/g, ' ');
+		}
+	</script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
