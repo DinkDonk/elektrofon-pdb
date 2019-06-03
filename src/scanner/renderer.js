@@ -395,6 +395,12 @@ function getForm() {
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
+						<input id="to" name="to" type="text" class="validate">
+						<label for="to">To</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
 						<select id="courier" name="courier">
 							<option value="DHL" selected>DHL</option>
 							<option value="FedEx">FedEx</option>

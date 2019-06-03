@@ -108,6 +108,7 @@ The following is the `data` properties for all events:
 
 #### shipped
 - technician [string]
+- to [string]
 - courier [string]
 - tracking-number [string]
 
