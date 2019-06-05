@@ -44,6 +44,13 @@ You can inject events on all items in the database by using `mass-inject-event.j
 $ node src/mass-inject-event.js '{"name": "power-on-test-completed","time":"2019-05-23T20:52:00.000Z","data":{"technician":"Rune Warhuus","notes":"3.3V, 13V, 1V and 1.25V tested OK"}}'
 ```
 
+`mass-inject-event.js` can take an optional list of serial numbers to mask event injection. Example of only updating serials `rktfr2223d` and `wze3r8hsg5:
+
+```bash
+$ node src/mass-inject-event.js '{"name": "power-on-test-completed","time":"2019-05-23T20:52:00.000Z","data":{"technician":"Rune Warhuus","notes":"3.3V, 13V, 1V and 1.25V tested OK"}}' rktfr2223d wze3r8hsg5
+```
+
+
 ### Available events
 
 - pcb-received

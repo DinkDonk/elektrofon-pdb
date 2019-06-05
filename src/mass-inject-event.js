@@ -4,6 +4,7 @@ const config = require('../config/config.json');
 const args = require('minimist')(process.argv.slice(2));
 
 let payload;
+let serials = [];
 
 if (!args._[0]) {
 	console.error('Error: A JSON payload is required');
@@ -22,6 +23,14 @@ if (!args._[0]) {
 	}
 }
 
+if (args._[1]) {
+	for (let i = 1, l = args._.length; i < l; i++) {
+		serials.push(args._[i]);
+	}
+}
+
+// process.exit(0);
+
 fs.readdir(__dirname + '/../pdb', (error, filenames) => {
 	if (error) throw error;
 
@@ -30,6 +39,12 @@ fs.readdir(__dirname + '/../pdb', (error, filenames) => {
 			if (error) throw error;
 
 			if (path.extname(filename) === '.json') {
+				const serial = path.parse(filename).name;
+
+				if (serials.length > 0 && serials.indexOf(serial) == -1) {
+					return;
+				}
+
 				let pdbItem = JSON.parse(data);
 
 				if (!pdbItem.hasOwnProperty('events')) {
