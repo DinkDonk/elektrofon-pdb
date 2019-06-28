@@ -66,6 +66,8 @@ $ node src/mass-inject-event.js '{"name": "power-on-test-completed","time":"2019
 - assembly-completed
 - packing-completed
 - shipped
+- manufacturing-halted
+- problem-resolved
 
 ### Event data
 All events has `name`, `time` and `data` attributes.
@@ -122,3 +124,7 @@ The following is the `data` properties for all events:
 #### manufacturing-halted
 - technician [string]
 - reason [string]
+
+#### problem-resolved
+- technician [string]
+- solution [string]
