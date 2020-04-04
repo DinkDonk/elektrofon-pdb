@@ -11,7 +11,7 @@
     "form-serialize": "^0.7.2",
     "jsqr": "^1.1.1",
     "materialize-css": "^1.0.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "qrcode-svg": "^1.0.0"
   }
 }
